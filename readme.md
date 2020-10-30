@@ -12,6 +12,8 @@ yarn add html-webpack-polyfill-runtime-plugin
 
 ### 示例
 
+- [example/webpack4]()
+
 手动移除 babel-loader 下的插入 polyfill 文件的行为，下面以 babel-loader 为例
 
 ```js

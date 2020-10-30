@@ -37,7 +37,6 @@ export class HtmlWebpackPolyfillRunTimePlugin {
         PLUGIN_NAME,
         async (data, callback) => {
 
-
           const jsAssets = Object.keys(compilation.assets)
             .filter(key => /js$/.test(key))
             .reduce((obj, key) => {
