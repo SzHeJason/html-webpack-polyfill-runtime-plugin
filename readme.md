@@ -12,45 +12,7 @@ yarn add html-webpack-polyfill-runtime-plugin
 
 ### 示例
 
-- [example/webpack4]()
-
-手动移除 babel-loader 下的插入 polyfill 文件的行为，下面以 babel-loader 为例
-
-```js
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlPolyfillRuntimePlugin = require('html-webpack-polyfill-runtime-plugin')
-
-module.exports = function() {
-   module: {
-     ...,
-     rules:[
-       ...,
-       {
-         loader: 'babel-loader',
-         options: {
-           presets: [
-             [
-               '@babel/preset-env',
-               {
-                 // 设置为 false，不自动引入 core-js
-                 useBuiltIns: false,
-       					....
-               },
-             ],
-           ],
-         },
-       }
-     ]
-   },
-   plugins: [
-    new HtmlWebpackPlugin(),
-    // 必须放在其他的 html-webpack 插件下
-    new HtmlPolyfillRuntimePlugin()
-  ]  
-}
-```
-
-
+- [example/webpack4](https://github.com/SzHeJason/html-webpack-polyfill-runtime-plugin/tree/master/examples/webpack4)
 
 ### 流程
 
@@ -79,5 +41,4 @@ module.exports = function() {
 	...,
 }
 ```
-
 
