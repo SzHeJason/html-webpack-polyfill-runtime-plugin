@@ -1,11 +1,11 @@
 {
   "name": "html-webpack-polyfill-runtime-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "np":"np",
+    "np": "np",
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
