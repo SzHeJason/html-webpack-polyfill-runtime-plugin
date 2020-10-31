@@ -16,7 +16,7 @@ yarn add html-webpack-polyfill-runtime-plugin
 
 ### 流程
 
-![process](https://sola.gtimg.cn/aoi/sola/20201030153049_BtJnp5lUae.jpg)
+![process](https://user-images.githubusercontent.com/20609396/97774659-c807db80-1b94-11eb-8db6-cad3dc83295e.jpg)
 
 
 
