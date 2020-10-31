@@ -1,11 +1,5 @@
 ## 使用
 
-```shell
-# 根目录安装 node_modules
-cd ../../
-yarn
-
-# 执行命令
-npm run build:runtime
-```
-
+1. install root node_modules
+2. install example project node_modules
+3. run `npm run build:runtime` or `npm run build:usage`
