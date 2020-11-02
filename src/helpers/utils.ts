@@ -3,7 +3,7 @@ export function isFunction(x: any): x is (...args: any[]) => any {
     {}.toString.call(x) === '[object Function]'
 }
 
-export function isObject(target: any): target is object {
+export function isObject(target: any): target is Record<string, unknown> {
   const type = typeof target;
   return (target && (type === 'object' || type === 'function')) || false;
 }

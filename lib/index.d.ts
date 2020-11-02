@@ -10,7 +10,7 @@ export interface PluginOptions {
 export interface JsAssets {
     source: () => string;
 }
-export declare class HtmlWebpackPolyfillRunTimePlugin {
+export default class HtmlWebpackPolyfillRunTimePlugin {
     options: PluginOptions;
     constructor(options?: PluginOptions);
     apply(compiler: Compiler): void;

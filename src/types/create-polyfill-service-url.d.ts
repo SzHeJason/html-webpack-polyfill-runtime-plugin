@@ -1,5 +1,8 @@
+
+
+
 declare module "create-polyfill-service-url/src/index" {
-  function createPolyfillUrl(features: string[], supportedBrowsers: string[]) {
+  const createPolyfillUrl = function (features: string[], supportedBrowsers: string[]) {
     return {
       type: Symbol("url") || Symbol("nothing"),
       message: '',

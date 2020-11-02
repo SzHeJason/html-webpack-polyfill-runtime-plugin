@@ -18,8 +18,7 @@ export interface JsAssets {
   source: () => string
 }
 
-
-export class HtmlWebpackPolyfillRunTimePlugin {
+export default class HtmlWebpackPolyfillRunTimePlugin {
   options: PluginOptions
 
   constructor(options: PluginOptions = {}) {
