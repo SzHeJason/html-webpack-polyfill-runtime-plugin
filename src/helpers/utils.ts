@@ -11,3 +11,7 @@ export function isObject(target: any): target is Record<string, unknown> {
 export function unique<T = any>(arr: T[]) {
   return arr.filter((v, i, a) => a.indexOf(v) === i);
 }
+
+export function isString(target: any): target is string {
+  return Object.prototype.toString.call(target) === '[object String]';
+}

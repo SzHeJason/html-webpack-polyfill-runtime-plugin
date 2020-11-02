@@ -1,4 +1,5 @@
 import browserslist from 'browserslist'
+import queryString from 'query-string'
 import createPolyfillUrl from 'create-polyfill-service-url/src/index';
 
 import * as utils from './utils'
@@ -28,7 +29,12 @@ export default async function getPolyfillUrl(assetsMap: Record<string, JsAssets>
     result.type === createPolyfillUrl.TYPE_URL &&
     utils.isFunction(url)
   ) {
-    result.message = url(uniqueFeatureList, featureMap) || result.message;
+    const qs = queryString.parseUrl(result.message)
+
+    if (utils.isString(qs.query.features)) {
+      const features = qs.query.features.split(',')
+      result.message = url(features, featureMap) || result.message;
+    }
   }
 
   return result.message;

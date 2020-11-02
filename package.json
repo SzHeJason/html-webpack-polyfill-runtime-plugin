@@ -30,7 +30,8 @@
     "browserslist": "^4.14.5",
     "create-polyfill-service-url": "^2.2.3",
     "fs-extra": "^9.0.1",
-    "html-webpack-plugin": "^4.5.0"
+    "html-webpack-plugin": "^4.5.0",
+    "query-string": "^6.13.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.6.0",
