@@ -4,7 +4,7 @@ import createPolyfillUrl from 'create-polyfill-service-url/src/index';
 import * as utils from './utils'
 import featureAnalyser from './features-analyser'
 
-import { JsAssets, PluginOptions } from '../index';
+import { JsAssets, PluginOptions } from '../interface';
 
 
 export default async function getPolyfillUrl(assetsMap: Record<string, JsAssets>, options: PluginOptions) {

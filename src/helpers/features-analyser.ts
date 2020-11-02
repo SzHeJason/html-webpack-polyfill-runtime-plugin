@@ -7,7 +7,7 @@ import jsFeaturesAnalyser from '@financial-times/js-features-analyser/src/index'
 
 import * as utils from './utils'
 
-import { JsAssets } from '../index'
+import { JsAssets } from '../interface'
 
 export default async function getJsFeature(assetsMap: Record<string, JsAssets>) {
   if (!utils.isObject(assetsMap)) {

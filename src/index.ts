@@ -1,24 +1,14 @@
 import { Compiler } from 'webpack';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+
 import createPolyfillUrl from './helpers/create-polyfill-url'
+
+import { PluginOptions, JsAssets } from './interface';
 
 const PLUGIN_NAME = 'HtmlWebpackPolyfillRunTimePlugin';
 
-export interface PluginOptions {
-  browserslist?: string | ReadonlyArray<string>,
-  /**
-   * 自定义 url
-   * @tip 返回 undefined 代表使用 polyfil.io 的 url
-   */
-  url?: (features: string[], featureMap: Record<string, string[]>) => string | undefined
-}
-
-export interface JsAssets {
-  source: () => string
-}
-
-export default class HtmlWebpackPolyfillRunTimePlugin {
+class HtmlWebpackPolyfillRunTimePlugin {
   options: PluginOptions
 
   constructor(options: PluginOptions = {}) {
@@ -62,5 +52,4 @@ export default class HtmlWebpackPolyfillRunTimePlugin {
   }
 }
 
-
-module.exports = HtmlWebpackPolyfillRunTimePlugin
+export = HtmlWebpackPolyfillRunTimePlugin
