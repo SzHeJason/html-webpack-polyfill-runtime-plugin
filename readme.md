@@ -1,6 +1,6 @@
 ## html-webpack-polyfill-runtime-plugin
 
-分析编译后的 js 需要用到的 polyfill 文件 
+分析编译后的 js 需要用到的 polyfill 文件，并生成对应的 polyfill.io 服务文件
 
 > 该插件继承于 [html-webpack-plugin@4.x](https://github.com/jantimon/html-webpack-plugin)，要搭配使用
 
