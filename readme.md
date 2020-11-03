@@ -18,8 +18,6 @@ yarn add html-webpack-polyfill-runtime-plugin
 
 - [example/webpack4](https://github.com/SzHeJason/html-webpack-polyfill-runtime-plugin/tree/master/examples/webpack4)
 
-polyfill url demo : https://polyfill.io/v3/polyfill.min.js?features=Function.prototype.bind,Map,Object.create,Object.defineProperty,Set,Symbol,Symbol.toStringTag,DataView
-
 ### 原理
 
 1. 获取编译后的 js 文件使用到的 features
