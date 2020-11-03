@@ -1,6 +1,10 @@
 ## html-webpack-polyfill-runtime-plugin
 
-分析编译后的 js 需要用到的 polyfill 文件，并生成对应的 polyfill.io 服务文件
+分析编译后的 js 需要用到的 features ，并生成对应的 polyfill 文件路径，该路径会根据用户的浏览器返回需要的内容
+
+url: https://polyfill.io/v3/polyfill.min.js?features=Function.prototype.bind,Map,Object.create,Object.defineProperty,Set,Symbol,Symbol.toStringTag,DataView
+
+该路径在高级浏览器下只会返回 DataView 代码，而在低级浏览器下回加载所有的 features 代码
 
 > 该插件继承于 [html-webpack-plugin@4.x](https://github.com/jantimon/html-webpack-plugin)，要搭配使用
 
