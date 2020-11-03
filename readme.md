@@ -4,7 +4,7 @@
 
 url: https://polyfill.io/v3/polyfill.min.js?features=Function.prototype.bind,Map,Object.create,Object.defineProperty,Set,Symbol,Symbol.toStringTag,DataView
 
-该路径在高级浏览器下只会返回 DataView 代码，而在低级浏览器下回加载所有的 features 代码
+该路径在最新的 Chrome 下只会返回 DataView 代码，而在旧版 Chrome 下会加载所有的该浏览器未支持的 features 代码
 
 > 该插件继承于 [html-webpack-plugin@4.x](https://github.com/jantimon/html-webpack-plugin)，要搭配使用
 
