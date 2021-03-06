@@ -5,7 +5,6 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "np": "np",
     "build": "tsc",
     "prepublishOnly": "npm run build",
     "lint-staged": "lint-staged -d",
@@ -16,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/SzHeJason/html-webpack-polyfill-runtime-plugin.git"
   },
-  "author": "",
+  "author": "SzHeJason",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SzHeJason/html-webpack-polyfill-runtime-plugin/issues"
@@ -24,7 +23,7 @@
   "homepage": "https://github.com/SzHeJason/html-webpack-polyfill-runtime-plugin#readme",
   "dependencies": {
     "@babel/core": "^7.12.3",
-    "@financial-times/js-features-analyser": "^0.0.4",
+    "@financial-times/js-features-analyser": "^0.4.2",
     "@types/babel__core": "^7.1.10",
     "@types/browserslist": "^4.8.0",
     "@types/fs-extra": "^9.0.2",
@@ -32,7 +31,6 @@
     "browserslist": "^4.14.5",
     "create-polyfill-service-url": "^2.2.3",
     "fs-extra": "^9.0.1",
-    "html-webpack-plugin": "^4.5.0",
     "query-string": "^6.13.6"
   },
   "devDependencies": {
@@ -41,13 +39,11 @@
     "eslint": "^7.12.1",
     "husky": "^4.3.0",
     "lint-staged": "^10.5.1",
-    "np": "^7.0.0",
     "standard-version": "^9.1.1",
-    "typescript": "^4.0.5",
-    "webpack": "^4.35.2"
+    "typescript": "^4.0.5"
   },
   "peerDependencies": {
-    "html-webpack-plugin": "^4.5.0",
-    "webpack": "^4.35.2"
+    "html-webpack-plugin": "^4.0.0 || ^5.0.0",
+    "webpack": "^4.0.0 || ^5.0.0"
   }
 }
