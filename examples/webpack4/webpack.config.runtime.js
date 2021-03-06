@@ -1,12 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlPolyfillRuntimePlugin = require('../..');
+const HtmlPolyfillRuntimePlugin = require('html-webpack-polyfill-runtime-plugin');
 
 module.exports = {
   entry: "./app.js",
   mode: "production",
-  resolve: {
-    symlinks: true,
-  },
   module: {
     rules: [
       {

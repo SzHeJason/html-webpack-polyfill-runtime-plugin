@@ -17,6 +17,7 @@
     "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.1.0",
     "webpack": "4.41.5",
-    "webpack-cli": "3.3.10"
+    "webpack-cli": "3.3.10",
+    "html-webpack-polyfill-runtime-plugin": "^1.0.4"
   }
 }
