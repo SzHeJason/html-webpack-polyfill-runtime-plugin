@@ -1,6 +1,6 @@
 {
   "name": "html-webpack-polyfill-runtime-plugin",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "auto insert that generate runtime polyfill by webpack build js assets",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
