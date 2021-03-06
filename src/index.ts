@@ -1,10 +1,10 @@
-import { Compiler } from 'webpack';
+import { Compiler, sources } from 'webpack';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 import createPolyfillUrl from './helpers/create-polyfill-url'
 
-import { PluginOptions, JsAssets } from './interface';
+import { PluginOptions } from './interface';
 
 const PLUGIN_NAME = 'HtmlWebpackPolyfillRunTimePlugin';
 
@@ -29,9 +29,9 @@ class HtmlWebpackPolyfillRunTimePlugin {
           const jsAssets = Object.keys(compilation.assets)
             .filter(key => /js$/.test(key))
             .reduce((obj, key) => {
-              obj[key] = compilation.assets[key];
+              obj[key] = compilation.assets[key] ;
               return obj;
-            }, {} as Record<string, JsAssets>);
+            }, {} as Record<string, sources.Source>);
 
 
           const url = await createPolyfillUrl(jsAssets, this.options);
@@ -43,6 +43,9 @@ class HtmlWebpackPolyfillRunTimePlugin {
               defer: false,
               src: url,
             },
+            meta:{
+              'plugin': PLUGIN_NAME
+            }
           });
 
           callback(null, data);

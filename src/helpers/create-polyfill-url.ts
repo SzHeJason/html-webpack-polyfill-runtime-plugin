@@ -1,3 +1,4 @@
+import webpack from 'webpack';
 import browserslist from 'browserslist'
 import queryString from 'query-string'
 import createPolyfillUrl from 'create-polyfill-service-url/src/index';
@@ -5,10 +6,10 @@ import createPolyfillUrl from 'create-polyfill-service-url/src/index';
 import * as utils from './utils'
 import featureAnalyser from './features-analyser'
 
-import { JsAssets, PluginOptions } from '../interface';
+import { PluginOptions } from '../interface'
 
 
-export default async function getPolyfillUrl(assetsMap: Record<string, JsAssets>, options: PluginOptions) {
+export default async function getPolyfillUrl(assetsMap: Record<string, webpack.sources.Source>, options: PluginOptions): Promise<string> {
   const { url, browserslist: browserslistConfig } = options;
 
   const browsers = browserslist(browserslistConfig, {

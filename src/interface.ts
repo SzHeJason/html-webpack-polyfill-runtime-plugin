@@ -7,6 +7,3 @@ export interface PluginOptions {
   url?: (features: string[], featureMap: Record<string, string[]>) => string | undefined
 }
 
-export interface JsAssets {
-  source: () => string
-}
