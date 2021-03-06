@@ -1,35 +1,84 @@
-## html-webpack-polyfill-runtime-plugin
+# HTML Webpack Polyfill Runtime Plugin
 
-分析编译后的 js 需要用到的 features ，并生成对应的 polyfill 文件路径，该路径会根据用户的浏览器返回需要的内容
+A [HTML Webpack Plugin](https://github.com/jantimon/html-webpack-plugin) for auto injecting runtime polyfill script
 
-url: https://polyfill.io/v3/polyfill.min.js?features=Function.prototype.bind,Map,Object.create,Object.defineProperty,Set,Symbol,Symbol.toStringTag,DataView
+This plugin make to you forget js polyfill 
 
-该路径在最新的 Chrome 下只会返回 DataView 代码，而在旧版 Chrome 下会加载所有的该浏览器未支持的 features 代码
+## Install
 
-> 该插件继承于 [html-webpack-plugin@4.x](https://github.com/jantimon/html-webpack-plugin)，要搭配使用
-
-## 安装
-
+```shell
+# npm
+npm install html-webpack-polyfill-runtime-plugin --save-dev
+# yarn
+yarn add html-webpack-polyfill-runtime-plugin -D
 ```
-yarn add html-webpack-polyfill-runtime-plugin
-```
 
-### 示例
+## Example
 
 - [example/webpack4](https://github.com/SzHeJason/html-webpack-polyfill-runtime-plugin/tree/master/examples/webpack4)
 
-### 原理
+webpack.config.js
 
-1. 获取编译后的 js 文件使用到的 features
-2. 根据 browserslist 过滤不需要支持的 features
-3. 生成 polyfill.io 的链接
-4. polyfill.io 服务会自动根据用户浏览器所支持的 features 返回对应的 js 代码
+````js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlPolyfillRuntimePlugin = require('html-webpack-polyfill-runtime-plugin');
 
-![process](https://user-images.githubusercontent.com/20609396/97774659-c807db80-1b94-11eb-8db6-cad3dc83295e.jpg)
+module.exports = {
+  entry: "./app.js",
+  mode: "production",
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [['@babel/preset-env', {
+              targets: [
+                'defaults',
+                'Chrome > 33',
+                'ios_saf > 7',
+                'android > 4.4',
+              ],
+            }]]
+          }
+        }
+      }
+    ]
+  },
+  plugins: [new HtmlWebpackPlugin(), new HtmlPolyfillRuntimePlugin()],
+}
+````
 
-### Build private runtime polyfill service (部署自己的 polyfill 服务)
+output html
 
-该插件使用了 [polyfill.io](https://polyfill.io/v3/) 提供的服务，如果开发者有需求想自己建立服务，可以使用 [js-polyfill-docker](https://github.com/3YOURMIND/js-polyfill-docker) 构建镜像，然后在插件提供的参数修改 url 地址
+```html
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Webpack App</title>
+  <script
+    src="https://polyfill.io/v3/polyfill.min.js?features=console,Function.prototype.bind,Map,Object.create,Object.defineProperty,Set,Symbol,Symbol.toStringTag"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+  <script src="main.js"></script>
+</body>
+
+</html>
+```
+
+### Process
+![image](https://user-images.githubusercontent.com/20609396/110198464-a3e34080-7e8d-11eb-9db8-dc759a0efdbb.png)
+
+
+### Build private runtime polyfill service 
+
+The plugin use [polyfill.io](https://polyfill.io/v3/)  by deafult，but you can makeprivate runtime polyfill service by [js-polyfill-docker](https://github.com/3YOURMIND/js-polyfill-docker) and override plugin url
 
 ```js
 // webpack.config.js
@@ -38,7 +87,8 @@ const HtmlPolyfillRuntimePlugin = require('html-webpack-polyfill-runtime-plugin'
 module.exports = function() {
 	...,
 	plugins:[
-		// 必须放在其他的 html-webpack 插件下
+		...，
+    // position of the plugin is last
 		new HtmlPolyfillRuntimePlugin({
 			url(features){
 				return `https//yourpolyfill.service.com/pathname?features=${features.join(,)}`
@@ -48,3 +98,5 @@ module.exports = function() {
 	...,
 }
 ```
+
+
