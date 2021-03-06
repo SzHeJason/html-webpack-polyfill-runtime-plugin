@@ -13,11 +13,12 @@
     "core-js": "^3.6.5"
   },
   "devDependencies": {
+    "html-webpack-polyfill-runtime-plugin": "^1.0.7",
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.1.0",
-    "webpack": "4.41.5",
-    "webpack-cli": "3.3.10",
-    "html-webpack-polyfill-runtime-plugin": "latest"
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "html-webpack-plugin": "^4.5.2"
   }
 }

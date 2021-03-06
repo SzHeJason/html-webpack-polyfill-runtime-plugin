@@ -1,5 +1,5 @@
 {
-  "name": "plugin-webpack4-demo",
+  "name": "plugin-webpack5-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,14 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "core-js": "^3.6.5",
-    "html-webpack-plugin": "^5.2.0"
+    "core-js": "^3.6.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.1.0",
-    "html-webpack-polyfill-runtime-plugin": "latest",
+    "html-webpack-plugin": "^5.2.0",
+    "html-webpack-polyfill-runtime-plugin": "^1.0.7",
     "webpack": "^5.24.3",
     "webpack-cli": "^4.5.0"
   }
